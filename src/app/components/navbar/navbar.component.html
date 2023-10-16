@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <div class="container">
+          <a class="navbar-brand" href="#">Gui-App</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav">
+               </ul>
+          </div>
+          <ng-container *ngIf="(isAuthenticated$ | async) === false; else signout">
+               <button class="btn btn-sm btn-outline-primary ml-auto" (click)="signIn()"> Sign in </button>
+          </ng-container>
+          
+          <ng-template #signout>
+               <button (click)="signOut()" class="btn btn-sm btn-outline-danger ml-auto">Sign out</button>
+          </ng-template>
+     </div>
+</nav>
+
